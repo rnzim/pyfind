@@ -8,6 +8,8 @@ png = 0
 pdf = 0
 jpg = 0
 mp4 = 0
+mov = 0
+avi = 0
 
 # Criar diretórios de destino se não existirem
 if not os.path.exists(to + 'png'):
@@ -18,6 +20,10 @@ if not os.path.exists(to + 'pdf'):
     os.makedirs(to + 'pdf')
 if not os.path.exists(to + 'mp4'):
     os.makedirs(to + 'mp4')
+if not os.path.exists(to + 'mov'):
+    os.makedirs(to + 'mov')
+if not os.path.exists(to + 'avi'):
+    os.makedirs(to + 'avi')
 
 
 
@@ -36,21 +42,21 @@ for folder in os.listdir(path):
             countFiles += 1
             if file.endswith('.png'):
                 png += 1
-               
                 shutil.copy(filePath, os.path.join(to, 'png'))
-              
             elif file.endswith('.jpg'):
                 jpg += 1
-               
                 shutil.copy(filePath, os.path.join(to, 'jpg'))
-               
             elif file.endswith('.pdf'):
                 pdf += 1
-               
                 shutil.copy(filePath, os.path.join(to, 'pdf'))
             elif file.endswith('.mp4'):
                 mp4 += 1
-               
-                shutil.copy(filePath, os.path.join(to, 'mp4'))    
+                shutil.copy(filePath, os.path.join(to, 'mp4')) 
+            elif file.endswith('.mov'):
+                mov += 1  
+                shutil.copy(filePath, os.path.join(to, 'mov')) 
+            elif file.endswith('.avi'):
+                avi += 1  
+                shutil.copy(filePath, os.path.join(to, 'avi'))         
 
-print(f"Achei: {countFiles} Arquivos \nPng: {png} \nPDF: {pdf} \nMP4: {mp4} \nJPG: {jpg}")
+print(f"Achei: {countFiles} Arquivos \nPng: {png} \nPDF: {pdf} \nMP4: {mp4} \nJPG: {jpg}\nMOV: {mov}\n AVI: {avi}")
